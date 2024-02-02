@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.5/dist/sweetalert2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Giriş</title>
+</head>
+<body>
+
+    <h2>Giriş Formu</h2>
+    <form id="girisForm" onsubmit="girisYap(event)">
+        <label for="girisKullaniciAdi">Kullanıcı Adı:</label>
+        <input type="text" id="girisKullaniciAdi" required>
+
+        <label for="girisSifre">Şifre:</label>
+        <input type="password" id="girisSifre" required>
+        <a href="./singup.html">Kayıt Ol</a>
+        <button class="show-example-btn" type="submit">Giriş</button>
+    </form>
+
+    <script>
+        function girisYap(event) {
+    event.preventDefault();
+
+    const girisKullaniciAdi = document.getElementById("girisKullaniciAdi").value;
+    const girisSifre = document.getElementById("girisSifre").value;
+
+    // localStorage'den kayıt bilgilerini al
+    const kayitBilgileri = {
+        kullaniciAdi: localStorage.getItem('kullaniciAdi'),
+        sifre: localStorage.getItem('sifre')
+    };
+
+    // Giriş bilgilerini kontrol et
+    if (girisKullaniciAdi === kayitBilgileri.kullaniciAdi && girisSifre === kayitBilgileri.sifre) {
+        // Başarılı giriş durumunda başka bir URL'ye yönlendir
+        window.location.href = "../index.html";
+    } else {
+        Swal.fire({
+  icon: "error",
+  title: "hata...",
+  text: "kullanıcı bilgileri hatalı",
+    })
+}
+        }
+    </script>
+</body>
+</html>

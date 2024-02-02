@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Kayıt Formu</title>
+</head>
+<body>
+    <h2>Kayıt Ekranı</h2>
+
+    <div id="kayitFormu">
+        <form id="kayitForm" onsubmit="kaydet(event)">
+            <label for="kullaniciAdi">Kullanıcı Adı:</label>
+            <input type="text" id="kullaniciAdi" required>
+
+            <label for="sifre">Şifre:</label>
+            <input type="password" id="sifre" required>
+
+            <button type="submit">Kaydet</button>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        function kaydet(event) {
+    event.preventDefault();
+    const kullaniciAdi = document.getElementById("kullaniciAdi").value;
+    const sifre = document.getElementById("sifre").value;
+    localStorage.setItem('kullaniciAdi', kullaniciAdi);
+    localStorage.setItem('sifre', sifre);
+    Swal.fire('Kayıt Oluşturuldu!', 'Giriş Yapma Sayfasına Yönlendiriliyorsunuz.', 'success');
+
+setTimeout(function() {
+    window.location.href = "login.html";
+}, 2000);
+}
+    </script>
+</body>
+</html>

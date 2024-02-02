@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" 
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+    crossorigin="anonymous"
+     referrerpolicy="no-referrer" />
+    <title>DSMTAL Market</title>
+</head>
+<body>
+
+<div class="container">
+    <button class="toggle-btn" onclick="toggleSidebar()"><i class="fa-solid fa-bars"></i></button>
+    <div class="sidebar" id="sidebar">
+        <img src="indir-removebg-preview.png" alt="ASADASD" onclick="showImageName('LCKVJZŞLXKJDVK<DJŞL<KJDVKCJ<LŞDVKJK<JLVDJ<KSVDJS')">
+        
+        <button class="close-btn" onclick="closeSidebar()"><i class="fa-solid fa-bars"></i></button>
+        <br>
+        <ul>
+            <hr>
+            <br>  
+          <a href="#"><li><i class="fa-regular fa-address-card"></i> Hakkımızda</li></a>
+          <br><hr><br>
+          <a href="#"><li><i class="fa-solid fa-cart-shopping"></i> Sipariş</li></a>
+          <br><hr><br>
+          <a href="#"><li><i class="fa-solid fa-file-invoice-dollar"></i> Fiyatlar</li></a>
+          <br><hr><br>
+          <a href="#"><li><i class="fa fa-cog" aria-hidden="true"></i> Ayarlar</li></a>
+          <br><hr><br>
+          <a href="#"><li><i class="fa-solid fa-user"></i> ERTAN</li></a>
+          <br><hr><br>
+          <a href="./log-sing-up/login.html"><li><i class="fa fa-sign-out" ></i> Çıkış</li></a>
+          <br><hr>
+        </ul>
+    </div>
+    <div class="content">
+        <div class="stoklar">
+            <br>
+            <div class="stokg">
+            <br>
+            
+                
+                
+                <div id="imageContainer">
+                <input onclick="addToCart('Meyve Suyu', 10)" value="Meyve Suyu" class="input input1" type="button">
+                <div id="imageName"></div>
+            </div>
+                <input onclick="addToCart('Çikolata', 15)" value="Çikolata" class="input input2" type="button">
+                <input onclick="addToCart('Şampuan', 50)" value="Şampuan" class="input input3" type="button">
+            <br>    
+            </div>
+            <br>
+            <div class="stokg2" style="display: flex; gap: 7px;">
+                <br>
+                <input onclick="addToCart('Sakız', 1)" value="Sakız" class="input input4" type="button">
+                <input onclick="addToCart('Kek', 5)" value="Kek" class="input input5" type="button">
+                <input onclick="addToCart('Jelibon', 10)" value="Jelibon" class="input input6" type="button">
+                <br>
+            </div>
+            <br>
+             <div class="stok">
+                <br>
+                <input onclick="addToCart('Süt', 21)" value="Süt" class="input input7" type="button">
+                <input onclick="addToCart('Gofret', 6)" value="Gofret" class="input input8" type="button">
+               
+                <br>
+             </div>  
+             <br>
+             <div class="stok2" style="display: flex; gap: 7px;">
+                <br>
+                
+                <br>
+             </div>         
+        </div>
+        <div class="satış">
+        <center>
+            <input class="text" type="text" 
+            placeholder="                     Barkod Giriniz">
+            <br><br><br>    
+           <!-- <input class="text text1" type="button" value="GİRİŞ">
+            <br><br>--><br><br>
+           
+            <div id="selected-products">
+                <table id="products-table">
+                    <thead>
+                        <tr>
+                            <th>Ürün İsmi</th>
+                            <th>Fiyat</th>
+                            <th>Miktar</th>
+                            <th>Tutar</th>
+                            <th>İşlem</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            
+            
+            <div class="toplam" >
+                <br>
+                <button class="text1" id="complete-button" onclick="completePayment()">nakit ödeme</button>
+                <br><br>
+                <a  href="./aaaaaaa/index.html"><button class="text1" id="complete-button">kart ile ödeme</button></a>
+                <br><br><br><br><br><br>
+                <div id="payment-success"></div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <div class="total" id="total-price">Toplam Tutar: 0 TL</div>
+                
+                
+            </div>
+
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11">
+</script>
+<script>
+    function completePayment() {
+        Swal.fire({
+            title: 'Nakit Ödeme',
+            text: 'Ödemenizi nakit olarak tamamlamak istediğinize emin misiniz? Toplam Tutar: ' + totalPrice + ' TL',
+            icon: 'info',
+            showCancelButton: true, 
+            confirmButtonText: 'Evet, Tamamla',
+            cancelButtonText: 'İptal',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                var paymentSuccessElement = document.getElementById("payment-success");
+                var completeButton = document.getElementById("complete-button");
+                paymentSuccessElement.textContent = "Ödeme Başarılı! Toplam Tutar: " + totalPrice + " TL";
+                completeButton.textContent = "Ödemeyi sonlandır";
+                completeButton.onclick = function() {
+                    location.reload();
+                };
+                Swal.fire('Tamamlandı!', 'Ödemeniz nakit olarak tamamlandı.', 'success');
+                setTimeout(function() {
+                    location.reload();
+                }, 1000);
+            }
+        });
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+body {
+    font-family: 'Verdana', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(to bottom right, #aaffaa, #66ff66);
+    color: #004d00; /* Kapalı yeşil renk */
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    padding: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+label {
+    font-size: 20px;
+    color: #004d00; /* Kapalı yeşil renk */
+}
+
+input {
+    padding: 15px;
+    border: 2px solid #004d00; /* Kapalı yeşil renk */
+    border-radius: 10px;
+    font-size: 18px;
+    outline: none;
+    transition: border 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #33cc33;
+}
+
+input:hover {
+    border-color: #33cc33;
+}
+
+button {
+    padding: 15px;
+    background: linear-gradient(to bottom right, #33cc33, #66ff66);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(to bottom right, #009933, #00cc66);
+}
+
+#uyariMesaji {
+    color: #ff0000;
+    font-size: 18px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
